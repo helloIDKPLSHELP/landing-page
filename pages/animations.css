@@ -1,0 +1,427 @@
+/* Subtle hero entrance — no layout transform on large text (avoids jank) */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.home-thq-text-elm28,
+.home-thq-text-elm29 {
+  animation: heroFadeIn 0.8s ease 0.1s both;
+}
+
+.home-thq-menu-btn {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: transparent;
+  transition: transform 0.25s ease;
+  width: 58px;
+  height: 58px;
+}
+
+.home-thq-menu-btn-fixed {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top, 0px));
+  left: max(12px, env(safe-area-inset-left, 0px));
+  z-index: 2147483646;
+  pointer-events: auto;
+  isolation: isolate;
+}
+
+.home-thq-menu-btn-fixed .home-thq-menu-elm {
+  width: 58px;
+  height: 58px;
+  display: block;
+  pointer-events: none;
+}
+
+.home-thq-menu-btn-fixed:hover {
+  transform: scale(1.06);
+}
+
+.home-thq-menu-btn-fixed:active {
+  transform: scale(0.96);
+}
+
+/* Scroll reveals: elements with data-reveal fade/slide in once they enter the
+   viewport (class is-revealed is added by hooks/useRevealOnScroll).
+   Uses the individual translate/scale properties so it never fights the
+   hover transforms on the same elements. */
+[data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 0.8s ease var(--reveal-delay, 0s),
+    translate 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0s),
+    scale 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0s);
+}
+
+[data-reveal='up'] {
+  translate: 0 70px;
+}
+
+[data-reveal='scale'] {
+  scale: 0.8;
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+}
+
+.home-thq-sidebar-elm {
+  animation: sectionFadeUp 0.6s ease 0.15s both;
+}
+
+.home-thq-card1-elm,
+.home-thq-card2-elm {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.home-thq-card1-elm:hover,
+.home-thq-card2-elm:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 12px 28px 0px rgba(0, 0, 0, 0.12);
+}
+
+.site-menu-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: min(320px, 88vw);
+  max-width: 88vw;
+  height: 100%;
+  max-height: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+.site-menu-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+.site-menu-dialog:not([open]) {
+  display: none;
+}
+
+.site-menu-panel-inner {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.25rem 2rem;
+  box-sizing: border-box;
+  animation: siteMenuSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes siteMenuSlideIn {
+  from {
+    transform: translateX(-12%);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.site-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.site-menu-brand {
+  font-family: 'Six Caps', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+}
+
+.site-menu-close {
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  color: #04364f;
+}
+
+.site-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.site-menu-item {
+  opacity: 0;
+  transform: translateX(-12px);
+}
+
+.site-menu-item.is-open {
+  animation: menuItemIn 0.45s ease forwards;
+}
+
+.site-menu-link {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  font-family: Inter, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 0.75rem 0.5rem;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.85);
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.site-menu-link:hover {
+  background: rgba(154, 47, 23, 0.12);
+  color: #04364f;
+  transform: translateX(4px);
+}
+
+@keyframes menuItemIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes sectionFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-thq-widget-link:hover span {
+  transform: translateY(-6px) scale(1.03);
+}
+
+.home-thq-sidebar-elm {
+  top: 1296px;
+  left: 0;
+  width: 1440px;
+  height: 287px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.home-thq-sidebar-marquee {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: widgetInfiniteScroll 28s linear infinite;
+}
+
+.home-thq-sidebar-track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 116px;
+  width: 1152px;
+  height: 287px;
+  padding-right: 116px;
+  box-sizing: content-box;
+}
+
+.home-thq-widget-card {
+  position: relative;
+  width: 518px;
+  height: 283px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 43px;
+}
+
+.home-thq-widget-card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 43px;
+  pointer-events: none;
+}
+
+.home-thq-widget-card-photo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  object-fit: cover;
+  object-position: center;
+  border-radius: 33px;
+  pointer-events: none;
+}
+
+.home-thq-widget-link {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 18px;
+}
+
+.home-thq-widget-link span {
+  display: block;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  font-family: Zen Loop, sans-serif;
+  font-weight: 400;
+  line-height: 1.1;
+  transition: transform 0.25s ease, text-shadow 0.25s ease;
+}
+
+.home-thq-widget-link-impact span {
+  font-size: 78px;
+}
+
+.home-thq-widget-link-catalogue span {
+  font-size: 87px;
+}
+
+@keyframes widgetInfiniteScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-1268px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    translate: none !important;
+    scale: none !important;
+    transition: none !important;
+  }
+
+  .home-thq-text-elm28,
+  .home-thq-text-elm29,
+  .home-thq-sidebar-elm,
+  .home-thq-sidebar-marquee,
+  .home-thq-sidebar-track {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Balloon-fact speech bubble that pops out of the stress ball (to its right,
+   level with the ball so it is visible in the same screen) */
+.balloon-fact-wrap {
+  position: absolute;
+  top: 400px;
+  left: 975px;
+  width: 330px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.balloon-fact {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px 22px;
+  background: #fffaf0;
+  border: 4px solid #04364f;
+  border-radius: 26px;
+  box-shadow: 6px 8px 0 rgba(4, 54, 79, 0.9);
+  color: #04364f;
+  font-family: Inter, sans-serif;
+  transform-origin: -4% 40%; /* grows out of the ball (to its left) */
+  animation: balloonFactSpit 0.55s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+.balloon-fact::after {
+  content: '';
+  position: absolute;
+  left: -19px;
+  top: 96px;
+  width: 30px;
+  height: 30px;
+  background: #fffaf0;
+  border-left: 4px solid #04364f;
+  border-bottom: 4px solid #04364f;
+  transform: rotate(45deg);
+}
+
+.balloon-fact.is-hiding {
+  animation: balloonFactHide 0.4s ease both;
+}
+
+.balloon-fact-label {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #9a2f17;
+}
+
+.balloon-fact-text {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+@keyframes balloonFactSpit {
+  0% {
+    opacity: 0;
+    transform: translate(-170px, 40px) scale(0.15) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0);
+  }
+}
+
+@keyframes balloonFactHide {
+  to {
+    opacity: 0;
+    transform: translateX(16px) scale(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .balloon-fact,
+  .balloon-fact.is-hiding {
+    animation: none !important;
+  }
+  .balloon-fact.is-hiding {
+    opacity: 0;
+  }
+}

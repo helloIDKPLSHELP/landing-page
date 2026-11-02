@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+
+# Next.js build
+.next/
+out/
+
+# logs & env (never commit secrets)
+npm-debug.log*
+.env
+.env.local
+.env*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.cursor/
+
+# Vercel local
+.vercel
+
+# Portable dev tools (local only)
+.tools/
+uplift/
+ewfwe/
