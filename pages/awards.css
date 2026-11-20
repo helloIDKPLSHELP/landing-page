@@ -1,0 +1,62 @@
+/* We did this — awards & news segments page */
+.awards-page { min-height: 100vh; padding: 0 4vw 5rem; background: var(--navy-deep); background-image: radial-gradient(circle at 80% 8%, rgba(39,94,118,.2), transparent 38%); color: var(--cream); }
+.awards-topline { display: flex; align-items: flex-start; justify-content: space-between; padding-top: 24px; }
+.awards-back { font: 700 .62rem/1 'League Spartan', sans-serif; letter-spacing: .2em; padding: 10px 0; border-bottom: 1px solid transparent; transition: border-color .2s ease; }
+.awards-back:hover, .awards-back:focus-visible { border-bottom-color: var(--cream); outline: none; }
+.awards-hero { padding: clamp(4rem, 12vh, 9rem) 0 clamp(3rem, 8vh, 6rem); }
+.awards-eyebrow { margin: 0 0 1.4rem; color: #e56b58; font: 800 .72rem/1 'League Spartan', sans-serif; letter-spacing: .26em; }
+.awards-hero h1 { margin: 0; font: 900 clamp(4.2rem, 17vw, 15rem)/.82 'League Spartan', sans-serif; letter-spacing: -.05em; }
+.awards-hero h1 em { color: #f0a190; font-family: 'STIX Two Text', serif; font-weight: 400; letter-spacing: -.02em; }
+
+
+.awards-empty { padding: 3rem 1.5rem; border: 2px dashed rgba(255,242,208,.4); border-radius: 22px; text-align: center; font: 600 1rem/1.6 'Be Vietnam Pro', sans-serif; }
+
+.awards-footer { display: flex; justify-content: flex-end; margin-top: clamp(4rem, 10vh, 7rem); }
+.oval-link--inline { position: relative; inset: auto; }
+
+
+/* Vision board: videos + photos scattered, tilted, overlapping */
+.board { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; padding: 2rem 0 4rem; }
+.board__item { position: relative; margin: 0; box-sizing: border-box; background: var(--cream); color: #1b2b36; padding: 12px 12px 14px; box-shadow: 0 12px 26px rgba(0,0,0,.45); transition: transform .3s ease, box-shadow .3s ease; }
+.board__item img, .board__video { display: block; width: 100%; }
+.board__item img { height: auto; }
+.board__video { aspect-ratio: 16 / 9; background: #000; }
+.board__video video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.board__item figcaption { padding-top: 10px; font: 600 .78rem/1.3 'Be Vietnam Pro', sans-serif; text-align: center; }
+.board__item figcaption strong { display: block; font: 800 .95rem/1.2 'League Spartan', sans-serif; letter-spacing: .02em; }
+.board__item figcaption span { display: block; margin-top: 4px; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: #4c6b78; }
+.board__item--video { width: min(46%, 560px); }
+.board__item--photo { width: min(48%, 680px); }
+.board__item--0 { transform: rotate(-3deg) translateY(14px); margin: 0 -2% 0 3%; z-index: 2; }
+.board__item--1 { transform: rotate(4deg) translateY(-30px); margin: 0 1% 0 -1%; z-index: 1; }
+.board__item--2 { transform: rotate(-5deg) translateY(40px); margin: 0 3% 0 -2%; z-index: 3; }
+.board__item--3 { transform: rotate(2deg) translateY(-8px); margin: -2% 0 0 4%; z-index: 2; }
+.board__item--4 { transform: rotate(-2deg) translateY(30px); margin: 0 -3% 0 2%; z-index: 1; }
+.board__item--5 { transform: rotate(5deg) translateY(-24px); margin: 2% 2% 0 -2%; z-index: 3; }
+.board__item--6 { transform: rotate(-4deg) translateY(10px); margin: -1% 0 0 6%; z-index: 2; }
+.board__item--7 { transform: rotate(3deg) translateY(-36px); margin: 1% -1% 0 0; z-index: 1; }
+.board__item:hover { transform: rotate(0) scale(1.04); z-index: 10; box-shadow: 0 20px 40px rgba(0,0,0,.55); }
+.board__tape { position: absolute; top: -13px; left: 50%; width: 86px; height: 26px; margin-left: -43px; background: rgba(240,161,144,.78); transform: rotate(-5deg); box-shadow: 0 1px 3px rgba(0,0,0,.25); z-index: 5; }
+.board__pin { position: absolute; top: -9px; left: 50%; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ff9b88, #e56b58 60%, #9b3425); box-shadow: 0 3px 5px rgba(0,0,0,.4); z-index: 5; }
+
+@media (max-width: 800px) {
+  .board__item--video { width: 94%; }
+  .board__item--photo { width: 94%; }
+  .awards-page { padding: 0 18px 4rem; }
+  .awards-topline { padding-top: 18px; }
+  .awards-footer { justify-content: center; }
+}
+
+/* Teaser on the home page */
+.awards-teaser { position: relative; padding: clamp(4rem, 12vh, 8rem) 4vw; text-align: center; background: var(--navy-deep); color: var(--cream); }
+.awards-teaser__eyebrow { margin: 0 0 1.2rem; color: #e56b58; font: 800 .72rem/1 'League Spartan', sans-serif; letter-spacing: .26em; }
+.awards-teaser h2 { margin: 0; font: 900 clamp(3.6rem, 14vw, 12rem)/.85 'League Spartan', sans-serif; letter-spacing: -.05em; }
+.awards-teaser h2 em { color: #f0a190; font-family: 'STIX Two Text', serif; font-weight: 400; letter-spacing: -.02em; }
+.awards-teaser__copy { max-width: 32rem; margin: 1.6rem auto 2rem; font: 500 1rem/1.6 'Be Vietnam Pro', sans-serif; }
+.awards-teaser__link { margin: 0 auto; }
+
+/* Collage embedded on the home page */
+.awards-section { position: relative; padding: clamp(4rem, 12vh, 8rem) 4vw clamp(3rem, 8vh, 6rem); overflow: hidden; background: var(--navy-deep); color: var(--cream); text-align: center; }
+.awards-section h2 { margin: 0 0 clamp(2rem, 6vh, 4rem); font: 900 clamp(3.6rem, 14vw, 12rem)/.85 'League Spartan', sans-serif; letter-spacing: -.05em; }
+.awards-section h2 em { color: #f0a190; font-family: 'STIX Two Text', serif; font-weight: 400; letter-spacing: -.02em; }
+@media (max-width: 800px) { .awards-section { padding-left: 18px; padding-right: 18px; } }
