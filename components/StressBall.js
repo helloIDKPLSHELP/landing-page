@@ -25,11 +25,11 @@ const VARIANTS = [
   },
   {
     name: 'Green \u2192 Indigo',
-    base: 0x0f8a4a,
-    active: 0x4f46e5,
-    sheen: 0x7fd9a6,
-    light: 0x14a35a,
-    rim: 0x4b6bff,
+    base: 0x2563eb,
+    active: 0x9333ea,
+    sheen: 0x93b8ff,
+    light: 0x3b82f6,
+    rim: 0xa855f7,
   },
 ]
 
